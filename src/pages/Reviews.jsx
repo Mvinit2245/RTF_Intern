@@ -2,8 +2,8 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 
 
-axios.get("/reviews")  // auto-appends to baseURL
-axios.post("/reviews", newReview)
+// axios.get("/reviews")  // auto-appends to baseURL
+// axios.post("/reviews", newReview)
 
 export default function Reviews() {
   const [reviews, setReviews] = useState([
