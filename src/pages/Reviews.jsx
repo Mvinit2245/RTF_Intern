@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
-import axios from "../api/axios";
+
 
 axios.get("/reviews")  // auto-appends to baseURL
 axios.post("/reviews", newReview)
