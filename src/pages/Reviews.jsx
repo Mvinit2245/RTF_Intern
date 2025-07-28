@@ -14,19 +14,20 @@ export default function Reviews() {
   const [newReview, setNewReview] = useState({ name: "", text: "", rating: 5 });
 
   useEffect(() => {
-    axios.get("https://your-backend-url.onrender.com/api/reviews")
+    axios.get("http://localhost:5000/api/reviews")
  // Use 5000 if backend runs there
       .then(res => {
+        //console.log("Fetched reviews:", res.data); 
         setReviews(res.data);
       })
       .catch(err => {
-        console.error("Error fetching reviews:", err.message);
+        console.error("Error fetching reviews:", err.text);
       });
   }, []);
 
    const handleSubmit = (e) => {
     e.preventDefault();
-   axios.post("https://your-backend-url.onrender.com/api/reviews", newReview)
+   axios.post("http://localhost:5000/api/reviews", newReview)
 
       .then(res => {
         setReviews([res.data, ...reviews]);
@@ -34,7 +35,7 @@ export default function Reviews() {
         setIsOpen(false);
       })
       .catch(err => {
-        console.error("Error submitting review:", err.message);
+        console.error("Error submitting review:", err.text);
       });
   };
 

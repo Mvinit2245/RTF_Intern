@@ -11,8 +11,8 @@ router.get("/", async (req, res) => {
 
 // POST a new review
 router.post("/", async (req, res) => {
-  const { name, message, rating } = req.body;
-  const review = new Review({ name, message, rating });
+  const { name, text, rating } = req.body;
+  const review = new Review({ name, text, rating });
   await review.save();
   res.status(201).json(review);
 });
