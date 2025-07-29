@@ -14,7 +14,8 @@ export default function Reviews() {
   const [newReview, setNewReview] = useState({ name: "", text: "", rating: 5 });
 
   useEffect(() => {
-    axios.get("http://localhost:5000/api/reviews")
+    //axios.get("http://localhost:5000/api/reviews")
+   axios.get("https://your-backend.onrender.com/api/reviews")
  // Use 5000 if backend runs there
       .then(res => {
         //console.log("Fetched reviews:", res.data); 
@@ -27,7 +28,8 @@ export default function Reviews() {
 
    const handleSubmit = (e) => {
     e.preventDefault();
-   axios.post("http://localhost:5000/api/reviews", newReview)
+   //axios.post("http://localhost:5000/api/reviews", newReview)
+   axios.post("https://your-backend.onrender.com/api/reviews", newReview)
 
       .then(res => {
         setReviews([res.data, ...reviews]);
